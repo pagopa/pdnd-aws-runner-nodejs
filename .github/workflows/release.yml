@@ -37,7 +37,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           
       - name: VPN Setup
-        uses: pagopa/pdnd-github-actions/ovpn-connect@875094a171f12271d0bb8f716bef44db97d48cab
+        uses: pagopa/pdnd-github-actions/ovpn-connect@0e0182767ef78df6a53324fc8a715ec29c9905bc
         with:
           OVPN_USERNAME: ${{ secrets.OVPN_USERNAME }}
           OVPN_CLIENT_KEY: ${{ secrets.OVPN_CLIENT_KEY }}

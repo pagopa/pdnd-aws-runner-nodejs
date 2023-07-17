@@ -42,7 +42,7 @@ jobs:
           repository: pagopa/pdnd-github-actions
           path: './pdnd-github-actions'
           ref: 2153ca2f61cb93e54dea5100957759c0c2772dab
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.PAT_BOT }}
       
       - name: VPN Setup
         uses: ./pdnd-github-actions/ovpn-connect

@@ -48,7 +48,6 @@ jobs:
       
       - name: VPN Setup
         uses: ./.github/actions/ovpn-connect
-        working-directory: ./.github/actions/ovpn-connect
         with:
           OVPN_USERNAME: ${{ secrets.OVPN_USERNAME }}
           OVPN_CLIENT_KEY: ${{ secrets.OVPN_CLIENT_KEY }}
@@ -78,3 +77,14 @@ jobs:
           labels: |
             maintainer=https://pagopa.it
             org.opencontainers.image.source=https://github.com/${{ github.repository }} 
+      
+      - name: debug
+        run: |
+              echo "current dir:"
+              pwd
+              echo "****"
+              echo "ls:"
+              ls
+              echo "****"
+              echo "ls github/actions/ovpn-connect:"
+              ls ./.github/actions/ovpn-connect

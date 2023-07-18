@@ -86,17 +86,3 @@ jobs:
           path: './.github/actions'
           ref: 2153ca2f61cb93e54dea5100957759c0c2772dab
           token: ${{ secrets.PAT_BOT }}
-      
-      - name: debug
-        run: |
-              echo "current dir:"
-              pwd
-              echo "****"
-              echo "ls:"
-              ls -la
-              echo "****"
-              echo "ls -la github:"
-              ls -la ./.github
-              echo "****"
-              echo "ls -la github/actions:"
-              ls -la ./.github/actions

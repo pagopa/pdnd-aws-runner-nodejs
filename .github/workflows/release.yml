@@ -16,14 +16,6 @@ jobs:
     runs-on: ubuntu-22.04
 
     steps:
-      - name: Checkout
-        id: checkout
-        # from https://github.com/actions/checkout/commits/main
-        uses: actions/checkout@1f9a0c22da41e6ebfa534300ef656657ea2c6707
-        with:
-          persist-credentials: false
-          fetch-depth: 0
-
       - name: Release
         id: release
         # from https://github.com/cycjimmy/semantic-release-action/commits/main
@@ -46,11 +38,19 @@ jobs:
           token: ${{ secrets.PAT_BOT }}
       
       - name: VPN Setup
-        uses: /home/runner/work/pdnd-aws-runner-nodejs/pdnd-aws-runner-nodejs/.github/actions/ovpn-connect
+        uses: ./.github/actions/ovpn-connect
         with:
           OVPN_USERNAME: ${{ secrets.OVPN_USERNAME }}
           OVPN_CLIENT_KEY: ${{ secrets.OVPN_CLIENT_KEY }}
           OVPN_TLS_AUTH_KEY: ${{ secrets.OVPN_TLS_AUTH_KEY }}
+
+      - name: Checkout
+        id: checkout
+        # from https://github.com/actions/checkout/commits/main
+        uses: actions/checkout@1f9a0c22da41e6ebfa534300ef656657ea2c6707
+        with:
+          persist-credentials: false
+          fetch-depth: 0
 
       - name: Log in to the Container registry
         id: docker_login

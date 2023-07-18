@@ -84,7 +84,10 @@ jobs:
               pwd
               echo "****"
               echo "ls:"
-              ls
+              ls -la
               echo "****"
-              echo "ls github/actions/ovpn-connect:"
-              ls ./.github/actions/ovpn-connect
+              echo "ls -la github:"
+              ls -la ./.github
+              echo "****"
+              echo "ls -la github/actions:"
+              ls -la ./.github/actions

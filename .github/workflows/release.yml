@@ -78,6 +78,15 @@ jobs:
             maintainer=https://pagopa.it
             org.opencontainers.image.source=https://github.com/${{ github.repository }} 
       
+      - name: Checkout ovpn-connect action
+        uses: actions/checkout@c85c95e3d7251135ab7dc9ce3241c5835cc595a9
+        with:
+          repository: pagopa/pdnd-github-actions
+          sparse-checkout: ovpn-connect
+          path: './.github/actions'
+          ref: 2153ca2f61cb93e54dea5100957759c0c2772dab
+          token: ${{ secrets.PAT_BOT }}
+      
       - name: debug
         run: |
               echo "current dir:"

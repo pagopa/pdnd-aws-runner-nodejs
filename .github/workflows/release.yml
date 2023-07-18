@@ -40,12 +40,13 @@ jobs:
         uses: actions/checkout@1f9a0c22da41e6ebfa534300ef656657ea2c6707
         with:
           repository: pagopa/pdnd-github-actions
-          path: './pdnd-github-actions'
+          sparse-checkout: ovpn-connect
+          path: './.github/actions'
           ref: 2153ca2f61cb93e54dea5100957759c0c2772dab
           token: ${{ secrets.PAT_BOT }}
       
       - name: VPN Setup
-        uses: ./pdnd-github-actions/ovpn-connect
+        uses: ./.github/actions/ovpn-connect
         with:
           OVPN_USERNAME: ${{ secrets.OVPN_USERNAME }}
           OVPN_CLIENT_KEY: ${{ secrets.OVPN_CLIENT_KEY }}

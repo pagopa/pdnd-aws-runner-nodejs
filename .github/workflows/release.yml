@@ -46,7 +46,7 @@ jobs:
           token: ${{ secrets.PAT_BOT }}
       
       - name: VPN Setup
-        uses: ./.github/actions/ovpn-connect
+        uses: /home/runner/work/pdnd-aws-runner-nodejs/pdnd-aws-runner-nodejs/.github/actions/ovpn-connect
         with:
           OVPN_USERNAME: ${{ secrets.OVPN_USERNAME }}
           OVPN_CLIENT_KEY: ${{ secrets.OVPN_CLIENT_KEY }}

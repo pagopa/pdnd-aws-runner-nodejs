@@ -6,7 +6,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     jq=1.6-2.1ubuntu3 \
     build-essential=12.9ubuntu3 \
     nodejs=12.22.9~dfsg-1ubuntu3 \
-    npm=8.5.1~ds-1
+    npm=8.5.1~ds-1 \
+    awscli=1.22.34-1
 
 USER runner
 WORKDIR /home/runner

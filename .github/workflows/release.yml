@@ -35,27 +35,13 @@ jobs:
             @semantic-release/git@10.0.1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          
-      - name: Checkout pdnd-github-actions
-        uses: actions/checkout@c85c95e3d7251135ab7dc9ce3241c5835cc595a9
-        with:
-          repository: pagopa/pdnd-github-actions
-          sparse-checkout: ovpn-connect
-          path: './.github/actions'
-          ref: 2153ca2f61cb93e54dea5100957759c0c2772dab
-          token: ${{ secrets.PAT_BOT }}
       
       - name: VPN Setup
-        uses: ./.github/actions/ovpn-connect
+        uses: pagopa/pdnd-github-actions/ovpn-connect@2153ca2f61cb93e54dea5100957759c0c2772dab
         with:
           OVPN_USERNAME: ${{ secrets.OVPN_USERNAME }}
           OVPN_CLIENT_KEY: ${{ secrets.OVPN_CLIENT_KEY }}
           OVPN_TLS_AUTH_KEY: ${{ secrets.OVPN_TLS_AUTH_KEY }}
-
-      - uses: actions/checkout@1f9a0c22da41e6ebfa534300ef656657ea2c6707
-        with:
-          persist-credentials: false
-          fetch-depth: 0
 
       - name: Log in to the Container registry
         id: docker_login

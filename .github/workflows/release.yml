@@ -35,18 +35,9 @@ jobs:
             @semantic-release/git@10.0.1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          
-      - name: Checkout ovpn-connect action
-        uses: actions/checkout@c85c95e3d7251135ab7dc9ce3241c5835cc595a9
-        with:
-          repository: pagopa/pdnd-github-actions
-          sparse-checkout: ovpn-connect
-          path: './.github/actions'
-          ref: 2153ca2f61cb93e54dea5100957759c0c2772dab
-          token: ${{ secrets.PAT_BOT }}
       
       - name: VPN Setup
-        uses: ./.github/actions/ovpn-connect
+        uses: pagopa/pdnd-github-actions/ovpn-connect@2153ca2f61cb93e54dea5100957759c0c2772dab
         with:
           OVPN_USERNAME: ${{ secrets.OVPN_USERNAME }}
           OVPN_CLIENT_KEY: ${{ secrets.OVPN_CLIENT_KEY }}
@@ -76,13 +67,3 @@ jobs:
           labels: |
             maintainer=https://pagopa.it
             org.opencontainers.image.source=https://github.com/${{ github.repository }} 
-      
-      # in order to avoid error in post run
-      - name: Checkout ovpn-connect action
-        uses: actions/checkout@c85c95e3d7251135ab7dc9ce3241c5835cc595a9
-        with:
-          repository: pagopa/pdnd-github-actions
-          sparse-checkout: ovpn-connect
-          path: './.github/actions'
-          ref: 2153ca2f61cb93e54dea5100957759c0c2772dab
-          token: ${{ secrets.PAT_BOT }}

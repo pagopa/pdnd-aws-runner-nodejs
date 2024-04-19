@@ -1,4 +1,4 @@
-FROM summerwind/actions-runner-dind:v2.304.0-ubuntu-22.04
+FROM summerwind/actions-runner-dind:v2.304.0-ubuntu-22.04@sha256:3fe933e38d6d78105e1bbebd12413ef7a6b41254e89effcfe2faf8fac2cebf2c
 USER root
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
